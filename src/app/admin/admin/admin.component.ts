@@ -15,4 +15,23 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  mode: string='side';
+
+  menu=[
+    {
+      name:'Class',
+      icon:'Home',
+      url:'/admin/product'
+    },
+    {
+      group:'Menu Cukur',
+      children:[
+        {
+          name:'Image Gallery',
+          icon:'images',
+          url:'/admin/product'
+        }
+      ]
+    }
+  ];
 }
