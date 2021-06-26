@@ -1,21 +1,93 @@
-<div class="uk-flex uk-flex-middle uk-flex-center uk-height-viewport">  
-    <mat-card class="uk-width-1-3@m">
-        <div class="uk-flex uk-flex-center uk-margin-medium-bottom">
-            <h3>Forgot Password</h3>
-        </div>
-      <mat-card-content>
-        <mat-form-field class="uk-width-1-1">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="your email">
+<style>
+  .intro-header {
+    height: unset !important;
+  }
+
+  .intro-2 {
+    background: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg")no-repeat center center;
+    background-size: cover;
+  }
+
+  .view {
+    height: 100vh !important;
+  }
+
+  .btn .fa {
+    margin-left: 3px;
+  }
+
+  .top-nav-collapse {
+    background-color: #424f95 !important;
+  }
+
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+
+  @media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+      background: #424f95 !important;
+    }
+  }
+
+  h6 {
+    line-height: 1.7;
+  }
+
+  .rgba-gradient .full-bg-img {
+    background: linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
+  }
+
+  @media (max-width: 450px) {
+    .margins {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+  }
+
+  @media (max-width: 740px) {
+
+    .full-height,
+    .full-height body,
+    .full-height header,
+    .full-height header .view {
+      height: 1020px;
+    }
+  }
+</style>
+
+<!--Main Navigation-->
+<header class="intro-header">
+
+
+  <!--Intro Section-->
+  <section class="view intro-2 rgba-gradient">
+    <div class="full-bg-img">
+      <div class="container flex-center">
+        <div class="row flex-center pt-5 mt-3">
+          <div class="col-md-6 text-center text-md-left margins">
+            <div class="white-text">
+            </div>
+          </div>
+
+  <div class="uk-flex uk-flex-middle uk-flex-center uk-height-viewport">  
+      <mat-card class="uk-width-1-3@m">
+          <div class="uk-flex uk-flex-center uk-margin-medium-bottom">
+              <h3>Forgot Password</h3>
+          </div>
+        <mat-card-content>
+          <mat-form-field class="uk-width-1-1">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="your email">
+          </mat-form-field>
+          <mat-form-field class="uk-width-1-1">
+            <mat-label>New password</mat-label>
+            <input matInput placeholder="your password">
         </mat-form-field>
         <mat-form-field class="uk-width-1-1">
-          <mat-label>New password</mat-label>
+          <mat-label>Confirm Password</mat-label>
           <input matInput placeholder="your password">
       </mat-form-field>
-      <mat-form-field class="uk-width-1-1">
-        <mat-label>Confirm Password</mat-label>
-        <input matInput placeholder="your password">
-    </mat-form-field>
           <div class="uk-flex uk-flex-right">
               <div class="uk-width-expand">
                 <button mat-button routerLink="/register">Create Account</button>
@@ -26,3 +98,29 @@
       </mat-card-content>
     </mat-card>
 </div>
+ <!--END LOG IN-->
+ <div class="col-md-6 wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</header>
+<!--Main Navigation-->
+
+<!--Main Layout-->
+<main>
+
+<div class="container">
+
+<!--Grid row-->
+<div class="row py-5">
+
+</div>
+<!--Grid row-->
+
+</div>
+
+</main>
+<!--Main Layout-->

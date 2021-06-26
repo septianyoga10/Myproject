@@ -5,15 +5,17 @@
     <mat-card-content>
         <div class="uk-flex">
             <span class="uk-width-expand"></span>
-            <button mat-flat-button color="primary">Reservation</button>
+            <button mat-flat-button color="primary"(click)="productDetail({},-1)">Reservation</button>
         </div>
         <table class="uk-table uk-table-middle uk-table-divider">
             <thead>               
                 <th>Nama</th>
-                <th>Jenis Cukuran</th>
-                <th>Waktu</th>
+                <th>Model</th>
+                <th>Hari</th>
                 <th>Status</th>
-                <th>Kang Cukur</th>
+                <th>Barber</th>
+                <th>Harga</th>
+                <th align="right"></th>
             </thead>
         </table>
     </mat-card-content>

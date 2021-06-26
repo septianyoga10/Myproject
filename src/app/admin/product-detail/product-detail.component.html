@@ -1,0 +1,33 @@
+<h3 mat-dialog-title>
+    Reservation
+</h3>
+<div mat-dialog-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>NAMA</mat-label>
+        <input matInput ="data.nama">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>MODEL</mat-label>
+        <input matInput ="data.model">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>HARI</mat-label>
+        <input matInput ="data.hari">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>STATUS</mat-label>
+        <input matInput ="data.status">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>BARBER</mat-label>
+        <input matInput ="data.barber">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Harga</mat-label>
+        <input matInput ="data.harga">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+<button mat-button mat-dialog-close>Batal</button>
+<button mat-flat-button (click)="saveData()">Simpan</button>
+</div>

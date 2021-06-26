@@ -19,18 +19,23 @@ export class AdminComponent implements OnInit {
 
   menu=[
     {
-      name:'Class',
-      icon:'Home',
-      url:'/admin/product'
+      name:'Dashboard',
+      icon:'dashboard',
+      url:'/admin/dashboard'
     },
     {
       group:'Menu Cukur',
       children:[
         {
-          name:'Image Gallery',
-          icon:'images',
+          name:'Costumers',
+          icon:'perm_identity',
           url:'/admin/product'
-        }
+        },
+        {
+          name:'Hair Care',
+          icon:'add_shopping_cart',
+          url:'/public/home'
+        },
       ]
     }
   ];
