@@ -8,15 +8,36 @@
             <button mat-flat-button color="primary"(click)="productDetail({},-1)">Reservation</button>
         </div>
         <table class="uk-table uk-table-middle uk-table-divider">
-            <thead>               
+            <thead> 
+                <th>No</th>              
                 <th>Nama</th>
                 <th>Model</th>
                 <th>Hari</th>
+                <th>Tanggal</th>
                 <th>Status</th>
                 <th>Barber</th>
                 <th>Harga</th>
                 <th align="right"></th>
             </thead>
+            <tbody>
+                <tr *ngFor="let costumer of costumers; let idx=index">
+                    <td>{{idx+1}}</td>
+                    <td>{{costumer.nama}}</td>
+                    <td>{{costumer.model}}</td>
+                    <td>{{costumer.hari}}</td>
+                    <td>{{costumer.tanggal}}</td>
+                    <td>{{costumer.status}}</td>
+                    <td>{{costumer.barber}}</td>
+                    <td>{{costumer.harga}}</td>
+                    <td align="right">
+                        <button mat-flat-button  routerLink="/admin/feedback/" color="accent">
+                            <mat-icon>question_answer</mat-icon>
+                        </button>
+                        <button mat-button color="primary"  (click)="productDetail(costumer, idx)">Edit</button>
+                        <button mat-button color="warn" (click)="deleteProduct(costumer.id, idx)"[disabled]="loadingDelete[idx]">{{loadingDelete[idx] ? 'Deleting..':'Delete'}}</button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </mat-card-content>
  </mat-card>

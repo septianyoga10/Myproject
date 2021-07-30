@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+    <!-- Collapsible content -->
+        <div class="uk-flex uk-flex-right ">
+            <button mat-flat-button color="primary" routerLink="/admin/haircare/">Tambah Produk</button>
+        </div>
+        <div class="uk-flex uk-flex-left ">
+            <button mat-flat-button color="primary" (click)="keranjangDetail({},-1)">ISI</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>  
+                <th>No</th>           
+                <th>Nama</th>
+                <th>kode</th>
+                <th>jenis</th>
+                <th>jumlah</th>
+                <th>Harga</th>
+                <th>Pembayaran</th>
+                <th align="right"></th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let trolly of trollys; let idx=index">
+                <td>{{idx+1}}</td>
+                <td>{{trolly.nama}}</td>
+                <td>{{trolly.kode}}</td>
+                <td>{{trolly.jenis}}</td>
+                <td>{{trolly.jumlah}}</td>
+                <td>{{trolly.harga}}</td>
+                <td>{{trolly.pembayaran}}</td>
+            <td align="right"> 
+                <button mat-button color="primary"  (click)="keranjangDetail(trolly, idx)">Edit</button>
+                <button mat-button color="warn" (click)="deleteKeranjang(trolly.id, idx)"[disabled]="loadingDelete[idx]">{{loadingDelete[idx] ? 'Deleting..':'Delete'}}</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</mat-card-content>
+</mat-card>

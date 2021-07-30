@@ -1,0 +1,15 @@
+<mat-card-header>
+    <mat-card-title>Add Image</mat-card-title>
+</mat-card-header>
+
+    <div class="uk-flex uk-flex-middle uk-flex-center" style="height: 100px; outline: 2px dashed #ccc; margin:10px;"
+        (click)="fileInput.click()">
+        <span>{{selectedFile ? selectedFile.name : 'Masukan Gambar'}}</span>
+        <input type="file" id="file" (change)="onFileChange($event)" #fileInput style="display: none;"
+            [(ngModel)]="data.file">
+    </div>
+    <div class="uk-flex uk-flex-right">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="accent" (click)="uploadFile()" [disabled]="loadingUpload">{{ loadingUpload ?
+            'Uploading':'Upload'}}</button>
+    </div>

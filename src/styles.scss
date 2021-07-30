@@ -7,14 +7,14 @@
 @include mat-core();
 
 // Define your application's custom theme.
-$primary: mat-palette($mat-cyan, 500);
-$accent:  mat-palette($mat-pink, A200, A100, A400);
+$primary: mat-palette($mat-blue-grey, 900);
+$accent:  mat-palette($mat-brown, 700);
 $theme: mat-light-theme($primary, $accent);
 
 // Include theme styles for Angular Material components.
 @include angular-material-theme($theme);
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Poppins, sans-serif; }
 
 @import './uikit.css.css';

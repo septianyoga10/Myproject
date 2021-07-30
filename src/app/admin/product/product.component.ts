@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
-
 
 @Component({
   selector: 'app-product',
@@ -10,27 +11,37 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 })
 export class ProductComponent implements OnInit {
   title:any;
-  cukur:any={};
-  cukurs:any={};
-  
-
+  costumer:any=[];
+  userData: any = {};
+  costumers: any;
   constructor(
     public dialog: MatDialog,
+    public db: AngularFirestore,
+    public auth: AngularFireAuth
   ) { 
-    this.title = 'Products';
+    
   }
 
   ngOnInit(): void {
-    console.log();
     this.title='Costumers';
-    this.cukurs = {
-      Nama : 'Joko',
-      Model : 'Botak',
-      Hari:'Rabu',
-      Status:'Booked',
-      Barber:'Ujang',
-      Harga:'30.000'
-    };
+    this.auth.user.subscribe(user=>{
+      this.userData = user;
+      this.getCostumers();
+    });
+  }
+  loading: boolean | undefined;
+  getCostumers()
+  {
+    this.loading=true;
+    this.db.collection('costumers', ref=>{
+      return ref.where('uid','==', this.userData.uid);
+    }).valueChanges({idField : 'id'}).subscribe(res=>{
+      console.log(res);
+      this.costumers=res;
+      this.loading=false;
+    },err=>{
+      this.loading=false;
+    })
   }
   productDetail(data:any,idx:any)
   {
@@ -42,10 +53,26 @@ export class ProductComponent implements OnInit {
       if(res)
       {
          //jika idx=-1 (penambahan data baru) maka tambahkan data
-        if(idx==-1)this.cukurs.push(res);      
+        if(idx==-1)this.costumers.push(res);      
          //jika tidak maka perbarui data  
-        else this.cukurs[idx]=res; 
+        else this.costumers[idx]=res; 
       }
     })
    }
+   loadingDelete:any={};
+  deleteProduct(id: any, idx: any)
+  {
+    var conf=confirm('Delete Item?');
+    if (conf)
+    {
+      this.db.collection('costumers').doc(id).delete().then(res=>{
+        this.costumers.splice(idx,1);
+        this.loadingDelete[idx]=false;
+      }).catch(err=>{
+        this.loadingDelete[idx]=false;
+        alert('Tidak dapat menghapus data');
+      });
+    }
+  }
+
 }

@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click)="feedbackDetail({},-1)">Penilaian</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>  
+                <th>No</th>             
+                <th>Nama</th>
+                <th>hari</th>
+                <th>Tanggal</th>
+                <th>Barber</th>
+                <th>Rating</th>
+                <th>Komentar</th>
+                <th>Add Images</th>
+                <th align="right"></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feedback of feedbacks; let idx=index">
+                    <td>{{idx+1}}</td>
+                    <td>{{feedback.nama}}</td>
+                    <td>{{feedback.hari}}</td>
+                    <td>{{feedback.tanggal}}</td>
+                    <td>{{feedback.barber}}</td>
+                    <td>{{feedback.rating}}</td>
+                    <td>{{feedback.komentar}}</td>
+                    <td>{{feedback.file}}</td>
+                    <td align="right">
+                        <button mat-button color="primary" (click)="uploadFile(feedback)">Upload</button>
+                        <button mat-button color="primary"  (click)="feedbackDetail(feedback, idx)">Edit</button>
+                        <button mat-button color="warn" (click)="deletefeedback(feedback.id, idx)"[disabled]="loadingDelete[idx]">{{loadingDelete[idx] ? 'Deleting..':'Delete'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>

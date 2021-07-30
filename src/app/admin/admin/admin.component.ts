@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-admin',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit {
 
   constructor(
+    public dialog: MatDialog,
     public router: Router
   ) { }
 
@@ -19,12 +21,12 @@ export class AdminComponent implements OnInit {
 
   menu=[
     {
-      name:'Dashboard',
-      icon:'dashboard',
+      name:'Home',
+      icon:'home',
       url:'/admin/dashboard'
     },
     {
-      group:'Menu Cukur',
+      group:'Menus',
       children:[
         {
           name:'Costumers',
@@ -32,9 +34,29 @@ export class AdminComponent implements OnInit {
           url:'/admin/product'
         },
         {
-          name:'Hair Care',
+          name:'HairCare Product',
+          icon:'shopping_bag',
+          url:'/admin/haircare'
+        },
+        {
+          name:'Trolly',
           icon:'add_shopping_cart',
-          url:'/public/home'
+          url:'/admin/keranjang'
+        },
+        {
+          name:'Review',
+          icon:'question_answer',
+          url:'/admin/feedback'
+        },
+      ]
+    },
+    {
+      group:'Others',
+      children:[
+        {
+          name:'Logout',
+          icon:'power_settings_new',
+          url:'/public/thanks'
         },
       ]
     }

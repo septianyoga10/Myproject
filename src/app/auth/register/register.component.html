@@ -4,7 +4,7 @@
   }
 
   .intro-2 {
-    background: url("https://mdbootstrap.com/img/Photos/Others/architecture.jpg")no-repeat center center;
+    background: url("https://images.pexels.com/photos/4226910/pexels-photo-4226910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")no-repeat center center;
     background-size: cover;
   }
 
@@ -34,9 +34,6 @@
     line-height: 1.7;
   }
 
-  .rgba-gradient .full-bg-img {
-    background: linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-  }
 
   @media (max-width: 450px) {
     .margins {
@@ -71,32 +68,37 @@
           </div>
 
           <div class="uk-flex uk-flex-middle uk-flex-center uk-height-viewport">  
-              <mat-card class="uk-width-1-3@m">
+              <div class="uk-width-1-3@m">
                   <div class="uk-flex uk-flex-center uk-margin-medium-bottom">
-                      <h2>REGISTRASI</h2>
+                    <h2
+                    style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Robotto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 24px; font-weight: Medium; color:rgb(0, 0, 0);">
+                        REGISTRASI</h2>
                   </div>
                 <mat-card-content>
-                  <mat-form-field appearance="outline" class="uk-width-1-1">
+                  <mat-form-field  class="uk-width-1-1">
                     <mat-label>Username</mat-label>
                     <input matInput placeholder="your name" >
                   </mat-form-field>
-                  <mat-form-field appearance="outline" class="uk-width-1-1">
+                  <mat-form-field  class="uk-width-1-1">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Ex. email@domain.com" >
+                    <input matInput placeholder="Ex. email@domain.com" [(ngModel)]="user.email">
                   </mat-form-field>
-                  <mat-form-field class="uk-width-1-1" appearance="outline">
+                  <mat-form-field class="uk-width-1-1">
                     <mat-label>Password</mat-label>
-                    <input matInput  placeholder="your password"> 
+                    <input matInput [type]="hide? 'password': 'text '" placeholder="your password" [(ngModel)]="user.password"> 
+                    <button mat-icon-button matSuffix (click)="hide = !hide">
+                      <mat-icon>{{hide ? 'visibility_off':'visibility'}}</mat-icon>
+                    </button>          
                   </mat-form-field>
                   <div class="uk-flex uk-flex-right">
                     <div class="uk-width-expand">
-                      <button mat-button routerLink="/login">I have an account</button>
-                      <button mat-button routerLink="/forgot">Forgot</button>
+                      <button mat-button routerLink="/login" style = "font-size:16px; font-weight: bold; color:rgb(0, 0, 0);">I have an account</button>
+                      <button mat-button routerLink="/forgot" style = "font-size:16px; font-weight: bold; color:rgb(0, 0, 0);">Forgot</button>
                     </div>
-                      <button mat-raised-button color="primary" >REGISTER</button>
+                    <button mat-raised-button color="accent" (click)="register()" [disabled]="loading">{{ loading ? 'TUNGGU':'REGISTER'}}</button>
                   </div>
       </mat-card-content>
-    </mat-card>
+    </div>
   </div>
   <!--END LOG IN-->
   <div class="col-md-6 wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">

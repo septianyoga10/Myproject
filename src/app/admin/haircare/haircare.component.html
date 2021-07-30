@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+    <!-- Collapsible content -->
+        <div class="uk-flex uk-flex-right ">
+            <button mat-flat-button color="primary"(click)="haircareDetail({},-1)">HairCare</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>  
+                <th>No</th>           
+                <th>Nama</th>
+                <th>kode</th>
+                <th>jenis</th>
+                <th>jumlah</th>
+                <th>Harga</th>
+                <th>Diskon</th>
+                <th align="right"></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hair of hairs; let idx=index">
+                    <td>{{idx+1}}</td>
+                    <td>{{hair.nama}}</td>
+                    <td>{{hair.kode}}</td>
+                    <td>{{hair.jenis}}</td>
+                    <td>{{hair.jumlah}}</td>
+                    <td>{{hair.harga}}</td>
+                    <td>{{hair.diskon}}</td>
+                    <td align="right"> 
+                        <button mat-flat-button  routerLink="/admin/keranjang/" color="accent" >
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                        <button mat-button color="primary"  (click)="haircareDetail(hair, idx)">Edit</button>
+                        <button mat-button color="warn" (click)="deleteHairCare(hair.id, idx)"[disabled]="loadingDelete[idx]">{{loadingDelete[idx] ? 'Deleting..':'Delete'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>

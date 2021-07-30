@@ -1,3 +1,71 @@
+<style>
+  .intro-header {
+    height: unset !important;
+  }
+
+  .intro-2 {
+    background: url("https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")no-repeat center center;
+    background-size: cover;
+  }
+
+  .view {
+    height: 100vh !important;
+  }
+
+  .btn .fa {
+    margin-left: 3px;
+  }
+
+  .top-nav-collapse {
+    background-color: #424f95 !important;
+  }
+
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+
+  @media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+      background: #424f95 !important;
+    }
+  }
+
+  h6 {
+    line-height: 1.7;
+  }
+
+  
+
+  @media (max-width: 450px) {
+    .margins {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+  }
+
+  @media (max-width: 740px) {
+
+    .full-height,
+    .full-height body,
+    .full-height header,
+    .full-height header .view {
+      height: 1020px;
+    }
+  }
+</style>
+
+
+  <!--Intro Section-->
+  <section class="view intro-2 rgba-gradient">
+    <div class="full-bg-img">
+      <div class="container flex-center">
+        <div class="row flex-center pt-5 mt-3">
+          <div class="col-md-6 text-center text-md-left margins">
+            <div class="white-text">
+            </div>
+          </div>
+
+
 <ng-container>
     <!--toolbar-->
     <mat-toolbar color="primary" class="example-header">
@@ -6,13 +74,22 @@
         </button>
         <span>CUKUR YUK</span>
         <div class="uk-width-expand"></div>
-        <mat-menu #appMenu="matMenu">
-          <button mat-menu-item >Logout</button>
-        </mat-menu>
         <mat-icon>account_circle</mat-icon>
-        <button mat-button >Admin</button>
-    </mat-toolbar>
-    <!--end toolbar-->
+        <button mat-button [matMenuTriggerFor]="appaccount">Admin</button>
+        <mat-menu #appaccount="matMenu">
+          <button mat-menu-item><mat-icon>manage_accounts</mat-icon>My Account</button>
+          <button mat-menu-item  routerLink="/admin/feedback"><mat-icon>question_answer</mat-icon>Review</button>
+        </mat-menu>  
+
+        <button mat-button [matMenuTriggerFor]="appmenu"><mat-icon>more_horiz</mat-icon></button>
+        <mat-menu #appmenu="matMenu">
+          <button mat-menu-item> <mat-icon>restore</mat-icon> Riwayat</button>
+          <button mat-menu-item><mat-icon>settings</mat-icon>settings</button>
+          <button mat-menu-item routerLink="/public/thanks"><mat-icon>power_settings_new</mat-icon>Logout</button>
+        </mat-menu>
+
+      </mat-toolbar>
+      <!--end toolbar-->
 
     <mat-sidenav-container class="example-container">
 
@@ -20,7 +97,7 @@
         #sidenav 
         mode="side" 
         [position]="'start'" 
-        opened 
+        opened
         class="sidenav-left" 
         [fixedInViewport]="true"
         [fixedTopGap]="60" [fixedBottomGap]="0">
@@ -42,10 +119,7 @@
           </div>
       
          </mat-nav-list>
-        
-         
-
-        </mat-sidenav>
+    </mat-sidenav>
   
   <mat-sidenav #sidenav mode="side" [position]="'end'"  class="example-container"
   [fixedInViewport]="true" [fixedTopGap]="60" 
@@ -55,7 +129,7 @@
   
   </mat-sidenav>
   <!--sidenav content-->
-  <mat-sidenav-content style="padding: 20px; background-color: #ccc;">
+  
   <!--halaman-halaman tampil disini-->
   
  
@@ -63,7 +137,7 @@
   
   
   
-  </mat-sidenav-content>
+  
   <!--end sidenav content-->
   </mat-sidenav-container>   
   </ng-container>

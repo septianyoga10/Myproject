@@ -1,1 +1,58 @@
-Dashboard work!
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Buat dua kolom yang sama yang mengapung di samping satu sama lain */
+        .column {
+            position:center;
+            width: 100%;
+            padding: 10px;
+            height: 230px;
+            width: 600px
+            /* Hanya untuk demonstrasi */
+        }
+    </style>
+</head>
+<body>
+    <mat-card-header>
+        <mat-card-title style = "font-size:24px; font-weight: semi-bold; color:rgb(73, 53, 53);"> DASHBOARD</mat-card-title>
+    </mat-card-header>
+    <div class="row">
+        <td>
+        <div class="column" style="background-color:#ffffff;">
+            <mat-card style="background-color:#e9dbdb">
+                <mat-card-header>
+                    <mat-card-title  style = "font-size:20px; font-weight: bold; color:rgb(0, 0, 0);">CUKUR YUK</mat-card-title>
+                    <mat-card-title>Senin, 10 Desember 2021</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="accent" routerLink="/admin/product">View Costumers</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </td>
+    <td>
+        <div class="column" style="background-color:#ffffff; ">
+            <mat-card style="background-color:#e9dbdb">
+                <mat-card-header>
+                    <mat-card-title style = "font-size:20px; font-weight: bold; color:rgb(0, 0, 0);">Promo Hair Care</mat-card-title>
+                    <mat-card-title>Diskon Up To 30%</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="accent" routerLink="/admin/haircare">View Hair Care</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </td>

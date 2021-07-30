@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cukur-yuk-3d450": {
+      "hosting": {
+        "my-project": [
+          "cukur-yuk-3d450"
+        ]
+      }
+    }
+  }
+}

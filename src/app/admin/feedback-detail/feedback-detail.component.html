@@ -1,0 +1,33 @@
+<h3 mat-dialog-title>
+    Review
+</h3>
+<div mat-dialog-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>NAMA</mat-label>
+        <input matInput [(ngModel)] ="data.nama">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>HARI</mat-label>
+        <input matInput [(ngModel)] ="data.hari">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>TANGGAL</mat-label>
+        <input matInput type="date" [(ngModel)] ="data.tanggal">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>BARBER</mat-label>
+        <input matInput [(ngModel)]="data.barber">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>RATING</mat-label>
+        <input matInput  matInput type="number" [(ngModel)]="data.rating">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>KOMENTAR</mat-label>
+        <input matInput [(ngModel)]="data.komentar">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+<button mat-button mat-dialog-close>Batal</button>
+<button mat-flat-button (click)="saveData()" [disabled]="loading">{{loading ? 'Menyimpan..':'Simpan'}}</button>
+</div>

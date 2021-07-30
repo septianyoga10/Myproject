@@ -4,30 +4,34 @@
 <div mat-dialog-content>
     <mat-form-field appearance="outline" style="width: 100%;">
         <mat-label>NAMA</mat-label>
-        <input matInput ="data.nama">
+        <input matInput [(ngModel)] ="data.nama">
     </mat-form-field>
     <mat-form-field appearance="outline" style="width: 100%;">
         <mat-label>MODEL</mat-label>
-        <input matInput ="data.model">
+        <input matInput [(ngModel)] ="data.model">
     </mat-form-field>
     <mat-form-field appearance="outline" style="width: 100%;">
         <mat-label>HARI</mat-label>
-        <input matInput ="data.hari">
+        <input matInput [(ngModel)] ="data.hari">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>TANGGAL</mat-label>
+        <input matInput type="date" [(ngModel)] ="data.tanggal">
     </mat-form-field>
     <mat-form-field appearance="outline" style="width: 100%;">
         <mat-label>STATUS</mat-label>
-        <input matInput ="data.status">
+        <input matInput [(ngModel)] ="data.status">
     </mat-form-field>
     <mat-form-field appearance="outline" style="width: 100%;">
         <mat-label>BARBER</mat-label>
-        <input matInput ="data.barber">
+        <input matInput [(ngModel)] ="data.barber">
     </mat-form-field>
     <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Harga</mat-label>
-        <input matInput ="data.harga">
+        <mat-label>HARGA</mat-label>
+        <input matInput type="number" [(ngModel)]="data.harga">
     </mat-form-field>
 </div>
 <div mat-dialog-actions align="end">
 <button mat-button mat-dialog-close>Batal</button>
-<button mat-flat-button (click)="saveData()">Simpan</button>
+<button mat-flat-button (click)="saveData()" [disabled]="loading">{{loading ? 'Menyimpan..':'Simpan'}}</button>
 </div>
